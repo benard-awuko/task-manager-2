@@ -1,22 +1,26 @@
+let Task = require('../models/Tasks')
+
 let getAllTasks = (req,res)=>{
-     res.send('All tasks....')
+res.send('All tasks...')
 }
 
-let createTask = (req,res)=>{
-     res.json(req.body)
-}
-
-let singleTask = (req,res)=>{
-     res.json({id:req.params.id})
+let createTask = async(req,res)=>{
+    let task = await Task.create(req.body)
+res.json({task})
 }
 
 let deleteTask = (req,res)=>{
-     res.json({id:req.params.id})
+res.json({id: req.params.id, data: req.body.name})
 }
 
-let updateTask = (req,res)=>{
-   res.json({id:req.params.id})
+let getSingleTask = (req,res)=>{
+res.json({id: req.params.id, data: req.body.name})
+}
+
+let editTask = (req,res)=>{
+res.json({id: req.params.id, data: req.body.name})
 }
 
 
-module.exports = {getAllTasks, createTask, singleTask, deleteTask, updateTask}
+
+module.exports = {getAllTasks, createTask, deleteTask, getSingleTask, editTask }
