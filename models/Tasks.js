@@ -1,16 +1,16 @@
 let mongoose = require('mongoose');
 
 
-let TaskSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        maxlength:[20, 'Must be not more than 20 characters'],
-        required:[true, 'Must be provided'],
-        trim:true
-    }, completed: {
-        default:false,
-        type:Boolean
-    }
+let modelSchema = new mongoose.Schema({
+    name:{required:[true, 'Must be provided'],
+          maxlength: [20, 'Be not exceed 20 characters'],
+          trim: true,
+          type: String
+        }, completed: {
+            type: Boolean,
+            default: false
+        }
 })
 
-module.exports = mongoose.model('Task', TaskSchema)
+
+module.exports = mongoose.model('Task', modelSchema);

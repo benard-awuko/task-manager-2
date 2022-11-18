@@ -1,2 +1,5 @@
-let notFound = (req, res) => res.status(404).send('Route does not exist');
+let notFound = (req, res)=>{
+       res.send('Route Does Not Exist')
+}
+
 module.exports = notFound;
