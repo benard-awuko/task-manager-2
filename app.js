@@ -3,7 +3,7 @@ let tasks = require('./modules/tasks')
 let app = express();
 
 app.use(express.json())
-
+app.use(express.static('./public'))
 require('dotenv').config()
 let connectDB = require('./db/connect');
 
